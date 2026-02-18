@@ -1,50 +1,120 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Home</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Home</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
+
 <body>
 
-<!-- Navbar Here -->
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<div class="container">
-<a class="navbar-brand" href="home.html">E-Shop</a>
+  <!-- ✅ Navbar (ONLY ONE) -->
+  <div class="navbar">
+    <h1>ShopEase</h1>
 
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-<span class="navbar-toggler-icon"></span>
-</button>
+    <div class="nav-links">
+      <a href="home.html">
+        <i class="fa-solid fa-house"></i> Home
+      </a>
 
-<div class="collapse navbar-collapse" id="navbarNav">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-<li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
-<li class="nav-item"><a class="nav-link" href="wishlist.html">Wishlist</a></li>
-<li class="nav-item"><a class="nav-link" href="orders.html">Orders</a></li>
-<li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
-</ul>
+      <a href="cart.html">
+        <i class="fa-solid fa-cart-shopping"></i> Cart
+      </a>
+
+      <a href="orders.html">
+        <i class="fa-solid fa-box"></i> Orders
+      </a>
+
+      <button onclick="logout()">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </div>
+  </div>
+
+  <!-- ✅ Main Container -->
+  <div class="container">
+
+    <!-- 🔍 Search Bar -->
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products...">
+    </div>
+
+    <!-- 🎯 Banner Section -->
+    <div class="banner-section">
+      <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da" class="banner-img">
+    </div>
+
+    <!-- 🛍 Categories Section -->
+    <h2 class="section-title">Shop by Category</h2>
+
+    
+    <!-- <div class="categories">
+
+  <div class="category-card" onclick="filterProducts('Mobiles')">
+    <i class="fa-solid fa-mobile-screen-button fa-3x"></i>
+    <p>Mobiles</p>
+  </div>
+
+  <div class="category-card" onclick="filterProducts('Fashion')">
+    <i class="fa-solid fa-shirt fa-3x"></i>
+    <p>Fashion</p>
+  </div>
+
+  <div class="category-card" onclick="filterProducts('Laptops')">
+    <i class="fa-solid fa-laptop fa-3x"></i>
+    <p>Laptops</p>
+  </div>
+
+  <div class="category-card" onclick="filterProducts('Home')">
+    <i class="fa-solid fa-house fa-3x"></i>
+    <p>Home</p>
+  </div>
+
+  <div class="category-card" onclick="filterProducts('Electronics')">
+    <i class="fa-solid fa-tv fa-3x"></i>
+    <p>Electronics</p>
+  </div>
+
+</div> -->
+<div class="category-item" onclick="filterByCategory('Mobiles')">
+   <i class="fas fa-mobile"></i>
+   <p>Mobiles</p>
 </div>
+
+<div class="category-item" onclick="filterByCategory('Fashion')">
+   <i class="fas fa-tshirt"></i>
+   <p>Fashion</p>
 </div>
-</nav>
+
+<div class="category-item" onclick="filterByCategory('Laptops')">
+   <i class="fas fa-laptop"></i>
+   <p>Laptops</p>
+</div>
+
+<div class="category-item" onclick="filterByCategory('Home')">
+   <i class="fas fa-home"></i>
+   <p>Home</p>
+</div>
+
+<div class="category-item" onclick="filterByCategory('Electronics')">
+   <i class="fas fa-tv"></i>
+   <p>Electronics</p>
+</div>
 
 
-<div class="container mt-5">
-<h2 class="mb-4">Featured Products</h2>
+    <!-- 🛒 Products Section -->
+    <h2 class="section-title">Trending Products</h2>
+    <div id="products" class="products-grid"></div>
 
-<div class="row">
-<div class="col-md-3">
-<div class="card">
-<img src="https://via.placeholder.com/200" class="card-img-top">
-<div class="card-body text-center">
-<h6>Product Name</h6>
-<p>₹ 999</p>
-<a href="product.html" class="btn btn-primary btn-sm">View</a>
-</div>
-</div>
-</div>
-</div>
+  </div>
 
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ✅ Scripts -->
+  <script src="../../utils/auth.js"></script>
+  <script src="../../utils/products.js"></script>
+<script>
+  loadProducts();
+</script>
 </body>
 </html>
