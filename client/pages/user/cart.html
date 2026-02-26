@@ -44,15 +44,13 @@
 <th>Total</th>
 </tr>
 </thead>
-
-<tbody>
-<tr>
+<!-- <tr>
 <td>Product A</td>
 <td>₹ 999</td>
 <td>1</td>
 <td>₹ 999</td>
-</tr>
-</tbody>
+</tr> -->
+<tbody id="cartItems"></tbody>
 </table>
 
 <a href="checkout.html" class="btn btn-success">Proceed to Checkout</a>
@@ -68,6 +66,34 @@
     }
 
     loadCart();
+</script>
+<script>
+function loadCart() {
+
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartItems = document.getElementById("cartItems");
+
+  cartItems.innerHTML = "";
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = "<tr><td colspan='4'>Cart is empty</td></tr>";
+    return;
+  }
+
+  cart.forEach(product => {
+
+    cartItems.innerHTML += `
+      <tr>
+        <td>${product.name}</td>
+        <td>₹ ${product.price}</td>
+        <td>${product.quantity}</td>
+        <td>₹ ${product.price * product.quantity}</td>
+      </tr>
+    `;
+  });
+}
+
+loadCart();
 </script>
 
 </body>

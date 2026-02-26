@@ -1,5 +1,9 @@
+require("dotenv").config({ path: __dirname + "/.env" });
 const express = require("express");
 const mongoose = require("mongoose");
+
+
+
 const dotenv = require("dotenv");
 const app = require("./app");   // ✅ keep this
 
@@ -36,5 +40,6 @@ const startServer = async () => {
     console.log(`Server running on http://localhost:${PORT} 🚀`);
   });
 };
-
+console.log("MONGO URI:", process.env.MONGO_URI);
+mongoose.connect("mongodb://127.0.0.1:27017/ecommerce")
 startServer();

@@ -55,14 +55,38 @@ function filterProducts(category) {
 }
 
 // 🛒 Add to Cart
+// function addToCart(productId) {
+//   let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+//   cart.push(productId);
+
+//   localStorage.setItem("cart", JSON.stringify(cart));
+
+//   alert("Product added to cart!");
+// }
 function addToCart(productId) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  cart.push(productId);
+  fetch(`http://localhost:5000/api/products/${productId}`)
+    .then(res => res.json())
+    .then(product => {
 
-  localStorage.setItem("cart", JSON.stringify(cart));
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  alert("Product added to cart!");
+      // Check if product already exists
+      const existingProduct = cart.find(item => item._id === product._id);
+
+      if (existingProduct) {
+        existingProduct.quantity += 1;
+      } else {
+        product.quantity = 1;
+        cart.push(product);
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      alert("Product added to cart!");
+    })
+    .catch(err => console.log(err));
 }
 
 // 🔄 Call Load on Page Load
