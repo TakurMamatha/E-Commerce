@@ -94,5 +94,84 @@ async function placeOrder() {
     }
 }
 </script>
+<!-- <script>
+function placeOrder() {
+
+  const checkoutItems = JSON.parse(localStorage.getItem("checkoutItems")) || [];
+
+  if (checkoutItems.length === 0) {
+    alert("No items selected for checkout");
+    return;
+  }
+
+  // 🔥 Calculate Delivery Days (3–5 days randomly)
+  const deliveryDays = Math.floor(Math.random() * 3) + 3;
+
+  const today = new Date();
+  today.setDate(today.getDate() + deliveryDays);
+
+  const deliveryDate = today.toDateString();
+
+  alert(
+    "🎉 Order Placed Successfully!\n\n" +
+    "Estimated Delivery: " + deliveryDate +
+    "\nDelivery Time: " + deliveryDays + " days"
+  );
+
+  // ✅ Clear selected items from cart
+  localStorage.removeItem("checkoutItems");
+
+  // Optional: Clear full cart
+  localStorage.removeItem("cart");
+
+  window.location.href = "orders.html";
+}
+</script> -->
+<script>
+function placeOrder() {
+
+  const checkoutItems = JSON.parse(localStorage.getItem("checkoutItems")) || [];
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+  if (checkoutItems.length === 0) {
+    alert("No items selected for checkout");
+    return;
+  }
+
+  // 🔥 Calculate delivery days (3–5)
+  const deliveryDays = Math.floor(Math.random() * 3) + 3;
+  const today = new Date();
+  today.setDate(today.getDate() + deliveryDays);
+  const deliveryDate = today.toDateString();
+
+  // ✅ Create Order Object
+  const newOrder = {
+    id: Date.now(),
+    items: checkoutItems,
+    orderDate: new Date().toDateString(),
+    deliveryDate: deliveryDate,
+    deliveryDays: deliveryDays,
+    status: "Processing"
+  };
+
+  // Save order
+  orders.push(newOrder);
+  localStorage.setItem("orders", JSON.stringify(orders));
+
+  // ❌ DO NOT CLEAR FULL CART
+  // Remove only selected items from cart
+  const updatedCart = cart.filter(cartItem =>
+    !checkoutItems.some(item => item._id === cartItem._id)
+  );
+
+  localStorage.setItem("cart", JSON.stringify(updatedCart));
+  localStorage.removeItem("checkoutItems");
+
+  alert("Order Placed Successfully!");
+
+  window.location.href = "orders.html";
+}
+</script>
 </body>
 </html>

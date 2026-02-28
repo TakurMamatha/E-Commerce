@@ -19,14 +19,27 @@ async function loadCart() {
 
   container.innerHTML = "";
 
-  cart.items.forEach((item) => {
-    container.innerHTML += `
-      <div>
-        <h3>${item.product.name}</h3>
-        <p>Qty: ${item.quantity}</p>
-      </div>
-    `;
-  });
-}
+//   cart.items.forEach((item) => {
+//     container.innerHTML += `
+//       <div>
+//         <h3>${item.product.name}</h3>
+//         <p>Qty: ${item.quantity}</p>
+//       </div>
+//     `;
+//   });
+// }
+cart.forEach((item, index) => {
+  table.innerHTML += `
+    <tr>
+      <td>
+        <input type="checkbox" class="select-product" data-index="${index}">
+      </td>
+      <td>${item.name}</td>
+      <td>₹ ${item.price}</td>
+      <td>${item.quantity}</td>
+      <td>₹ ${item.price * item.quantity}</td>
+    </tr>
+  `;
+});
 
 loadCart();

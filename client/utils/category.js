@@ -42,4 +42,35 @@ async function loadCategoryProducts() {
   }
 }
 
+async function addToCart(productId) {
+
+  try {
+    // Get full product details from backend
+    const response = await fetch(`http://localhost:5000/api/products/${productId}`);
+    const product = await response.json();
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existingProduct = cart.find(item => item._id === product._id);
+
+    if (existingProduct) {
+      existingProduct.quantity += 1;
+    } else {
+      cart.push({
+        _id: product._id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        quantity: 1
+      });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(product.name + " added to cart ✅");
+
+  } catch (error) {
+    console.log("Error adding to cart:", error);
+  }
+}
 loadCategoryProducts();
