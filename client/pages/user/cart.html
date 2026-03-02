@@ -20,7 +20,7 @@
 <ul class="navbar-nav ms-auto">
 <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
 <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
-<li class="nav-item"><a class="nav-link" href="wishlist.html">Wishlist</a></li>
+<!-- <li class="nav-item"><a class="nav-link" href="wishlist.html">Wishlist</a></li> -->
 <li class="nav-item"><a class="nav-link" href="orders.html">Orders</a></li>
 <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
 </ul>
@@ -43,6 +43,7 @@
 <th>Price</th>
 <th>Quantity</th>
 <th>Total</th>
+<!-- <th>Status</th> -->
 </tr>
 </thead>
 <!-- <tr>
@@ -111,20 +112,34 @@ function loadCart() {
     return;
   }
 
+  // cart.forEach((product, index) => {
+
+  //   cartItems.innerHTML += `
+  //     <tr>
+  //       <td>
+  //         <input type="checkbox" class="select-product" data-index="${index}">
+  //       </td>
+  //       <td>${product.name}</td>
+  //       <td>₹ ${product.price}</td>
+  //       <td>${product.quantity}</td>
+  //       <td>₹ ${product.price * product.quantity}</td>
+  //     </tr>
+  //   `;
+  // });
   cart.forEach((product, index) => {
 
-    cartItems.innerHTML += `
-      <tr>
-        <td>
-          <input type="checkbox" class="select-product" data-index="${index}">
-        </td>
-        <td>${product.name}</td>
-        <td>₹ ${product.price}</td>
-        <td>${product.quantity}</td>
-        <td>₹ ${product.price * product.quantity}</td>
-      </tr>
-    `;
-  });
+  const status = product.status ? product.status : "In Cart";
+
+  cartItems.innerHTML += `
+    <tr>
+      <td>${product.name}</td>
+      <td>₹ ${product.price}</td>
+      <td>${product.quantity}</td>
+      <td>₹ ${product.price * product.quantity}</td>
+      <td>${status}</td>
+    </tr>
+  `;
+});
 }
 
 function proceedToCheckout() {

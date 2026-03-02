@@ -161,9 +161,18 @@ function placeOrder() {
 
   // ❌ DO NOT CLEAR FULL CART
   // Remove only selected items from cart
-  const updatedCart = cart.filter(cartItem =>
-    !checkoutItems.some(item => item._id === cartItem._id)
-  );
+  // const updatedCart = cart.filter(cartItem =>
+  //   !checkoutItems.some(item => item._id === cartItem._id)
+  // );
+  checkoutItems.forEach(orderItem => {
+  cart.forEach(cartItem => {
+    if (cartItem._id === orderItem._id) {
+      cartItem.status = "Order Placed";
+    }
+  });
+});
+
+localStorage.setItem("cart", JSON.stringify(cart));
 
   localStorage.setItem("cart", JSON.stringify(updatedCart));
   localStorage.removeItem("checkoutItems");
