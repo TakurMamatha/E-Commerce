@@ -20,7 +20,7 @@
 <ul class="navbar-nav ms-auto">
 <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
 <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
-<li class="nav-item"><a class="nav-link" href="wishlist.html">Wishlist</a></li>
+<!-- <li class="nav-item"><a class="nav-link" href="wishlist.html">Wishlist</a></li> -->
 <li class="nav-item"><a class="nav-link" href="orders.html">Orders</a></li>
 <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
 </ul>
@@ -39,7 +39,7 @@
   <div id="ordersList"></div>
 </div>
 
-<table class="table table-bordered">
+<!-- <table class="table table-bordered">
 <tr>
 <th>Order ID</th>
 <th>Date</th>
@@ -55,10 +55,10 @@
 <td><span class="badge bg-success">Delivered</span></td>
 <td><a href="order-details.html" class="btn btn-sm btn-info">View</a></td>
 </tr>
-</table>
+</table> -->
 
 </div>
-<h2>My Orders</h2>
+<!-- <h2>My Orders</h2> -->
 
 <div id="ordersContainer"></div>
 
@@ -99,7 +99,32 @@ function loadOrders() {
     `;
   });
 }
+async function viewOrder(orderId) {
 
+  const token = localStorage.getItem("token");
+
+  const res = await fetch(`http://localhost:5000/api/orders/${orderId}`, {
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  });
+
+  const order = await res.json();
+
+  let productHtml = "";
+
+  order.orderItems.forEach(item => {
+    productHtml += `
+      <div class="card mb-3 p-3">
+        <h5>${item.name}</h5>
+        <p>Price: ₹ ${item.price}</p>
+        <p>Quantity: ${item.quantity}</p>
+      </div>
+    `;
+  });
+
+  document.getElementById("orderDetails").innerHTML = productHtml;
+}
 loadOrders();
 </script>
 </body>

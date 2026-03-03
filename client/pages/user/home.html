@@ -47,37 +47,7 @@
     </div>
 
     
-<!-- 🛍 Categories Section
-<h2 class="section-title">Shop by Category</h2>
 
-<div class="categories">
-
-  <div class="category-card"onclick="window.location.href='category.html?category=Mobiles'">Mobiles</div>>
-    <i class="fa-solid fa-mobile-screen-button fa-2x"></i>
-   
-  </div>
-
-  <div class="category-card" onclick="window.location.href='category.html?category=Mobiles'">
-    <i class="fa-solid fa-shirt fa-2x"></i>
-    <p>Fashion</p>
-  </div>
-
-  <div class="category-card" onclick="window.location.href='category.html?category=Mobiles'">
-    <i class="fa-solid fa-laptop fa-2x"></i>
-    <p>Laptops</p>
-  </div>
-
-  <div class="category-card" onclick="filterProducts('Home')">
-    <i class="fa-solid fa-house fa-2x"></i>
-    <p>Home</p>
-  </div>
-
-  <div class="category-card" onclick="window.location.href='category.html?category=Mobiles'">
-    <i class="fa-solid fa-tv fa-2x"></i>
-    <p>Electronics</p>
-  </div>
-
-</div> -->
 <!-- 🛍 Categories Section -->
 <h2 class="section-title">Shop by Category</h2>
 
@@ -121,6 +91,22 @@
   <script src="../../utils/auth.js"></script>
   <script src="../../utils/products.js"></script>
 <script>
+  function addToCart(name, price) {
+
+  console.log("Adding:", name);   // for testing
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push({
+    name: name,
+    price: price,
+    quantity: 1
+  });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  alert("Product Added To Cart");
+}
   loadProducts();
 </script>
 </body>
