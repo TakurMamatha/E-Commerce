@@ -46,37 +46,34 @@ E-Commerce
 │
 ├── client
 │ ├── pages
-│ │ ├── user
-│ │ │ ├── cart.html
-│ │ │ ├── orders.html
-│ │ │ ├── profile.html
+│ │ └── user
+│ │ ├── cart.html
+│ │ ├── orders.html
+│ │ └── profile.html
 │ │
-│ ├── js
+│ └── js
 │
 ├── server
 │ ├── controllers
 │ │ ├── orderController.js
 │ │ ├── productController.js
-│ │ ├── userController.js
+│ │ └── userController.js
 │ │
 │ ├── models
 │ │ ├── user.js
 │ │ ├── product.js
 │ │ ├── order.js
-│ │ ├── cart.js
+│ │ └── cart.js
 │ │
 │ ├── routes
 │ │ ├── orderRoutes.js
 │ │ ├── productRoutes.js
 │ │ ├── userRoutes.js
-│ │ ├── cartRoutes.js
+│ │ └── cartRoutes.js
 │ │
 │ ├── middleware
-│ │ ├── authMiddleware.js
+│ │ └── authMiddleware.js
 │ │
-│ ├── server.js
+│ └── server.js
 │
 └── README.md
-
-
----
