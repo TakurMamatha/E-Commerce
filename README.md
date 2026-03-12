@@ -41,39 +41,42 @@ This project demonstrates **REST API development, authentication, and full-stack
 
 ---
 
-# 📁 Project Structure
+## 📁 Project Structure
+
+```
 E-Commerce
 │
 ├── client
-│ ├── pages
-│ │ └── user
-│ │ ├── cart.html
-│ │ ├── orders.html
-│ │ └── profile.html
-│ │
-│ └── js
+│   ├── pages
+│   │   └── user
+│   │       ├── cart.html
+│   │       ├── orders.html
+│   │       └── profile.html
+│   │
+│   └── js
 │
 ├── server
-│ ├── controllers
-│ │ ├── orderController.js
-│ │ ├── productController.js
-│ │ └── userController.js
-│ │
-│ ├── models
-│ │ ├── user.js
-│ │ ├── product.js
-│ │ ├── order.js
-│ │ └── cart.js
-│ │
-│ ├── routes
-│ │ ├── orderRoutes.js
-│ │ ├── productRoutes.js
-│ │ ├── userRoutes.js
-│ │ └── cartRoutes.js
-│ │
-│ ├── middleware
-│ │ └── authMiddleware.js
-│ │
-│ └── server.js
+│   ├── controllers
+│   │   ├── orderController.js
+│   │   ├── productController.js
+│   │   └── userController.js
+│   │
+│   ├── models
+│   │   ├── user.js
+│   │   ├── product.js
+│   │   ├── order.js
+│   │   └── cart.js
+│   │
+│   ├── routes
+│   │   ├── orderRoutes.js
+│   │   ├── productRoutes.js
+│   │   ├── userRoutes.js
+│   │   └── cartRoutes.js
+│   │
+│   ├── middleware
+│   │   └── authMiddleware.js
+│   │
+│   └── server.js
 │
 └── README.md
+```
