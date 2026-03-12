@@ -42,8 +42,6 @@ This project demonstrates **REST API development, authentication, and full-stack
 ---
 
 ## 📁 Project Structure
-
-```
 E-Commerce
 │
 ├── client
@@ -79,4 +77,5 @@ E-Commerce
 │   └── server.js
 │
 └── README.md
+
 ```
