@@ -83,4 +83,87 @@ E-Commerce
 
 ---
 
-## ⚙️ Installation & Setup Follow these steps to run the project locally on your system. ### 1️⃣ Clone the Repository ```bash git clone https://github.com/your-username/e-commerce-project.git ``` ### 2️⃣ Navigate to the Project Directory ```bash cd e-commerce-project ``` ### 3️⃣ Install Backend Dependencies Navigate to the server folder and install the required packages. ```bash cd server npm install ``` ### 4️⃣ Create Environment Variables Create a `.env` file inside the **server** folder and add the following: ``` MONGO_URI=mongodb://127.0.0.1:27017/ecommerce JWT_SECRET=your_secret_key PORT=5000 ``` ### 5️⃣ Start the Backend Server ```bash npm start ``` The backend server will start at: ``` http://localhost:5000 ``` ### 6️⃣ Run the Frontend Open the **client folder** and run it using **Live Server** in VS Code or open the HTML files directly in the browser. Example path: ``` client/pages/user/index.html ``` ### 7️⃣ Database Setup Make sure **MongoDB is running locally**. Default database used in this project: ``` ecommerce ``` You can verify the database and collections using **MongoDB Compass**. ### 8️⃣ Access the Application Frontend: ``` http://127.0.0.1:5500 ``` Backend API: ``` http://localhost:5000/api ``` --- ### ✅ Requirements Before running the project, ensure you have installed: - Node.js - MongoDB - Git - VS Code (Recommended) ````
+## ⚙️ Installation & Setup
+
+Follow the steps below to run this project locally.
+
+### 1. Clone the Repository
+
+Download the project from GitHub.
+
+```bash
+git clone https://github.com/your-username/e-commerce-project.git
+```
+
+### 2. Navigate to the Project Directory
+
+```bash
+cd e-commerce-project
+```
+
+### 3. Install Backend Dependencies
+
+Go to the server folder and install the required packages.
+
+```bash
+cd server
+npm install
+```
+
+### 4. Configure Environment Variables
+
+Create a `.env` file inside the **server** directory and add the following configuration:
+
+```
+MONGO_URI=mongodb://127.0.0.1:27017/ecommerce
+JWT_SECRET=your_secret_key
+PORT=5000
+```
+
+### 5. Start the Backend Server
+
+```bash
+npm start
+```
+
+The backend server will run at:
+
+```
+http://localhost:5000
+```
+
+### 6. Run the Frontend
+
+Open the **client** folder and run the project using **Live Server** in VS Code or open the HTML files in a browser.
+
+Example:
+
+```
+client/pages/user/index.html
+```
+
+### 7. Ensure MongoDB is Running
+
+Make sure MongoDB is running locally on your system.
+The project uses the following database:
+
+```
+ecommerce
+```
+
+You can view the data using **MongoDB Compass**.
+
+### 8. Access the Application
+
+Frontend:
+
+```
+http://127.0.0.1:5500
+```
+
+Backend API:
+
+```
+http://localhost:5000/api
+```
+
