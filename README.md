@@ -80,3 +80,34 @@ E-Commerce
 │
 └── README.md
 ```
+
+---
+
+# ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/your-username/ecommerce-project.git
+2️⃣ Navigate to Project Folder
+cd ecommerce-project
+3️⃣ Install Backend Dependencies
+npm install
+4️⃣ Create .env File
+
+Inside server folder create:
+
+.env
+
+Add:
+
+MONGO_URI=mongodb://127.0.0.1:27017/ecommerce
+JWT_SECRET=your_secret_key
+PORT=5000
+5️⃣ Start Server
+npm start
+
+Server will run on:
+
+http://localhost:5000
+
