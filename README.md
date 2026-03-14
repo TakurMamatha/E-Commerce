@@ -166,11 +166,37 @@ Backend API:
 ```
 http://localhost:5000/api
 ```
-## 📸 Screenshots
+## 📡 API Endpoints
 
-### 🏠 Home Page
-![Home Page](screenshots/home.png)
+### 👤 User
 
+| Method | Endpoint | Description |
+|-------|----------|-------------|
+| POST  | /api/users/register | Register a new user |
+| POST  | /api/users/login | Login user |
+| GET   | /api/users/profile | Get user profile |
+
+### 📦 Products
+
+| Method | Endpoint | Description |
+|-------|----------|-------------|
+| GET   | /api/products | Get all products |
+| GET   | /api/products/:id | Get product by ID |
+
+### 🛒 Cart
+
+| Method | Endpoint | Description |
+|-------|----------|-------------|
+| POST  | /api/cart | Add product to cart |
+| GET   | /api/cart | Get cart items |
+| DELETE| /api/cart/:id | Remove item from cart |
+
+### 📦 Orders
+
+| Method | Endpoint | Description |
+|-------|----------|-------------|
+| POST  | /api/orders | Create a new order |
+| GET   | /api/orders/myorders | Get logged-in user orders |
 
 
 
