@@ -169,15 +169,8 @@ http://localhost:5000/api
 ## 📸 Screenshots
 
 ### 🏠 Home Page
-![Home Page](C:\Users\takur\OneDrive\画像\Screenshots\Screenshot 2026-03-12 112310.png)
+![Home Page](screenshots/home.png)
 
-### 🛍️ Products Page
-![Products Page](screenshots/products.png)
 
-### 🛒 Cart Page
-![Cart Page](screenshots/cart.png)
-
-### 📦 Orders Page
-![Orders Page](screenshots/orders.png)
 
 
