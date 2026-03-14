@@ -166,6 +166,7 @@ Backend API:
 ```
 http://localhost:5000/api
 ```
+
 ## 📡 API Endpoints
 
 ### 👤 User
